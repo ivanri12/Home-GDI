@@ -9,6 +9,7 @@ if (mysqli_connect_errno()) {
     echo mysqli_connect_error();
 }
 
+
 function base_url($url = null)
 {
     $base_url = "http://localhost/gmit_genesaret_danau_ina_lasiana";

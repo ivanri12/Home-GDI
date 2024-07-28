@@ -1,4 +1,4 @@
-<?php require_once('_config/config.php') ?>
+<?php require_once('admin/_config/config.php') ?>
 
 
 <?php include 'header.php' ?>
