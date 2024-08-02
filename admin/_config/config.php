@@ -12,7 +12,7 @@ if (mysqli_connect_errno()) {
 
 function base_url($url = null)
 {
-    $base_url = "http://localhost/gmit_genesaret_danau_ina_lasiana";
+    $base_url = "http://localhost/Home-GDI/admin";
     if ($url != null) {
         return $base_url . "/" . $url;
     } else {
