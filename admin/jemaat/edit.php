@@ -6,7 +6,7 @@ $kategori = isset($_SESSION['kategori']) ? $_SESSION['kategori'] : '';
 
 // Cek kategori dan hak akses
 // Misalnya, hanya Admin dan Ketua Majelis yang dapat mengakses halaman ini
-if ($kategori !== 'Admin' && $kategori !== 'Ketua Majelis') {
+if ($kategori !== 'Admin' && $kategori !== 'Kordinator') {
     http_response_code(403); // Set status kode HTTP 403 (Forbidden)
     echo "<script>window.location='" . base_url('akses-ditolak.php') . "';</script>";
     exit; // Pastikan eksekusi berhenti setelah redirect

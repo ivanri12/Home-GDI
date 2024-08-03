@@ -185,7 +185,7 @@ if (!isset($_SESSION['id_user'])) {
                                 </li>
                             <?php } ?>
 
-                            <?php if ($kategori === 'Ketua Majelis' || $kategori === 'Admin') { ?>
+                            <?php if ($kategori === 'Kordinator' || $kategori === 'Admin') { ?>
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('jemaat/data.php') ?>" aria-expanded="false">
                                         <i class="fas fa-database"></i><span class="hide-menu">Data Jemaat</span>
