@@ -33,11 +33,10 @@ $primaryKey = 'id_pendeta';
 // parameter represents the DataTables column identifier. In this case simple
 // indexes
 $columns = array(
-    array('db' => 'id_periode', 'dt' => 0),
-    array('db' => 'nama_pendeta',  'dt' => 1),
-    array('db' => 'tanggal_menjabat',   'dt' => 2),
-    array('db' => 'tanggal_jabatan_berakhir',     'dt' => 3),
-    array('db' => 'id_pendeta',     'dt' => 4),
+    array('db' => 'nama_pendeta',  'dt' => 0),
+    array('db' => 'tanggal_menjabat',   'dt' => 1),
+    array('db' => 'tanggal_jabatan_berakhir',     'dt' => 2),
+    array('db' => 'id_pendeta',     'dt' => 3),
     // array(
     //     'db'        => 'salary',
     //     'dt'        => 5,
@@ -47,6 +46,7 @@ $columns = array(
     // )
 );
 
+$joinQuery = "FROM pendeta";
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -57,5 +57,5 @@ $columns = array(
 require('../assets/libs/ssp.class.php');
 
 echo json_encode(
-    SSP::simple($_GET, $sql_details, $table, $primaryKey, $columns)
+    SSP::simple($_GET, $sql_details, $table, $primaryKey, $columns, $joinQuery)
 );

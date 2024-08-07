@@ -171,6 +171,14 @@ if (!isset($_SESSION['id_user'])) {
 
                             <?php if ($kategori === 'Kordinator' || $kategori === 'Admin') { ?>
                                 <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('jemaat/data.php') ?>" aria-expanded="false">
+                                        <i class="fas fa-database"></i><span class="hide-menu">Data Jemaat</span>
+                                    </a>
+                                </li>
+                            <?php } ?>
+
+                            <?php if ($kategori === 'Kordinator' || $kategori === 'Admin') { ?>
+                                <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('status_sosial_jemaat/data.php') ?>" aria-expanded="false">
                                         <i class="fas fa-database"></i><span class="hide-menu">Status Sosial Jemaat</span>
                                     </a>
@@ -185,13 +193,6 @@ if (!isset($_SESSION['id_user'])) {
                                 </li>
                             <?php } ?>
 
-                            <?php if ($kategori === 'Kordinator' || $kategori === 'Admin') { ?>
-                                <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('jemaat/data.php') ?>" aria-expanded="false">
-                                        <i class="fas fa-database"></i><span class="hide-menu">Data Jemaat</span>
-                                    </a>
-                                </li>
-                            <?php } ?>
 
                             <?php if ($kategori === 'Ketua Majelis' || $kategori === 'Admin') { ?>
                                 <li class="sidebar-item">

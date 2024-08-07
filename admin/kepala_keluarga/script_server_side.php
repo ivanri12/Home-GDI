@@ -47,7 +47,7 @@ $columns = array(
 // SQL server connection information
 include_once '../_config/conn.php';
 
-$joinQuery = "LEFT JOIN rayon ON kepala_keluarga.id_rayon = kepala_keluarga.id_rayon";
+$joinQuery = "FROM kepala_keluarga LEFT JOIN rayon ON kepala_keluarga.id_rayon = rayon.id_rayon";
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

@@ -21,7 +21,7 @@ if ($kategori !== 'Admin') {
                     <div class="card-body">
                         <div class="row">
                             <div class="card-body mb-1">
-                                <h5 class="card-title mb-0"><i class="fas fa-table"></i>Data Jemaat</h5>
+                                <h5 class="card-title mb-0"><i class="fas fa-table"></i>Data Rayon</h5>
                                 <a href="tambah.php" class="btn btn-info mt-3"><i class="fas fa-plus"></i> Tambah Data</a>
                                 <!-- <a href="import.php" class="btn btn-success mt-3"><i class="fas fa-file-excel"></i> Import Excel</a> -->
                             </div>
@@ -47,19 +47,20 @@ if ($kategori !== 'Admin') {
         <script>
             $(document).ready(function() {
                 $('#jemaat').DataTable({
+                    "order": [
+                        [0, 'asc']
+                    ],
                     processing: true,
                     serverSide: true,
                     ajax: 'script_server_side.php',
                     scrollY: '250px',
                     dom: 'Bfrtip',
-                    button: [{
+                    buttons: [{
                             extend: 'pdf',
-                            oriented: 'potrait',
+                            oriented: 'portrait',
                             pageSize: 'Legal',
                             title: 'Data Jemaat',
                             download: 'open'
-
-
                         },
                         'csv', 'excel', 'print', 'copy'
                     ],
@@ -68,11 +69,10 @@ if ($kategori !== 'Admin') {
                         "orderable": false,
                         "targets": 2,
                         "render": function(data, type, row) {
-                            let btn = "<center><a href = 'edit.php?id=" + data + "' style='margin-right: 2px; margin-left: -10px;' class='btn-sm btn-warning'><i class='fas fa-edit'></i></a><a href = 'hapus.php?id=" + data + "' onclick=\"return confirm('Data Akan Dihapus?')\" class='btn-sm btn-danger'><i class='fas fa-trash'></i></a></center>";
+                            let btn = "<center><a href='edit.php?id=" + data + "' style='margin-right: 2px; margin-left: -10px;' class='btn-sm btn-warning'><i class='fas fa-edit'></i></a><a href='hapus.php?id=" + data + "' onclick=\"return confirm('Data Akan Dihapus?')\" class='btn-sm btn-danger'><i class='fas fa-trash'></i></a></center>";
                             return btn;
                         }
-                    }],
-                    "order": [0, "desc"]
+                    }]
                 });
             });
         </script>

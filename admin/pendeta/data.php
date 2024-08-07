@@ -20,7 +20,7 @@ if ($kategori !== 'Admin') {
                 <div class="card-body">
                     <div class="row">
                         <div class="card-body mb-1">
-                            <h5 class="card-title mb-0"><i class="fas fa-table"></i>Data Jemaat</h5>
+                            <h5 class="card-title mb-0"><i class="fas fa-table"></i>Data Pendeta</h5>
                             <a href="tambah.php" class="btn btn-info mt-3"><i class="fas fa-plus"></i> Tambah Data</a>
                             <!-- <a href="import.php" class="btn btn-success mt-3"><i class="fas fa-file-excel"></i> Import Excel</a> -->
                         </div>
@@ -29,7 +29,6 @@ if ($kategori !== 'Admin') {
                         <table id="pendeta" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Periode</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">Tanggal Menjabat</th>
                                     <th scope="col">Tanggal Jabatan Berahkir</th>
@@ -65,7 +64,7 @@ if ($kategori !== 'Admin') {
                         columnDefs: [{
                             "searchable": false,
                             "orderable": false,
-                            "targets": 4,
+                            "targets": 3,
                             "render": function(data, type, row) {
                                 let btn = "<center><a href = 'edit.php?id=" + data + "' style='margin-right: 2px; margin-left: -10px;' class='btn-sm btn-warning'><i class='fas fa-edit'></i></a><a href = 'hapus.php?id=" + data + "' onclick=\"return confirm('Data Akan Dihapus?')\" class='btn-sm btn-danger'><i class='fas fa-trash'></i></a></center>";
                                 return btn;

@@ -47,7 +47,7 @@ $columns = array(
 // SQL server connection information
 include_once '../_config/conn.php';
 
-$joinQuery = "LEFT JOIN pendeta ON jemaat.id_pendeta = pendeta.id_pendeta LEFT JOIN kepala_keluarga ON jemaat.id_kepala_keluarga = kepala_keluarga.id_kepala_keluarga";
+$joinQuery = "FROM jemaat LEFT JOIN pendeta ON jemaat.id_pendeta = pendeta.id_pendeta LEFT JOIN kepala_keluarga ON jemaat.id_kepala_keluarga = kepala_keluarga.id_kepala_keluarga";
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

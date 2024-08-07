@@ -20,7 +20,7 @@ if ($kategori !== 'Admin') {
                 <div class="card-body">
                     <h4 class="card-title">Tambah Data Periode</h4>
                     <div class="tabel">
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label for="id_pendeta" class="col-sm-2 text-start control-label col-form-label">Nama Pendeta</label>
                             <div class="col-sm-9">
                                 <select class="form-control select2 form-select shadow-none" style="width: 100%; height:36px;" name="id_pendeta" id="id_pendeta" required>
@@ -33,7 +33,7 @@ if ($kategori !== 'Admin') {
                                     ?>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group row">
                             <label for="jabatan_majelis" class="col-sm-2 text-start control-label col-form-label">Jabatan Majelis</label>
                             <div class="col-sm-9">

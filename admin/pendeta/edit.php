@@ -29,13 +29,13 @@ if ($kategori !== 'Admin') {
                 <div class="card-body">
                     <h4 class="card-title">Edit Data Pendeta</h4>
                     <div class="tabel">
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label for="id_periode" class="col-sm-2 text-start control-label col-form-label">Periode</label>
                             <div class="col-sm-9">
                                 <input type="hidden" name="id" value="<?= $data['id_pendeta'] ?>">
                                 <input type="text" name="id_periode" class="form-control" id="id_periode" placeholder="Periode" value="<?= $data['id_periode'] ?>" required>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group row">
                             <label for="nama_pendeta" class="col-sm-2 text-start control-label col-form-label">Nama Pendeta</label>
                             <div class="col-sm-9">

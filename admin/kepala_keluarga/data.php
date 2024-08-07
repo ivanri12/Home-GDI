@@ -20,7 +20,7 @@ if ($kategori !== 'Admin' && $kategori !== 'Kordinator') {
                 <div class="card-body">
                     <div class="row">
                         <div class="card-body mb-1">
-                            <h5 class="card-title mb-0"><i class="fas fa-table"></i>Data Jemaat</h5>
+                            <h5 class="card-title mb-0"><i class="fas fa-table"></i>Data Kepla Keluarga</h5>
                             <a href="tambah.php" class="btn btn-info mt-3"><i class="fas fa-plus"></i> Tambah Data</a>
                             <!-- <a href="import.php" class="btn btn-success mt-3"><i class="fas fa-file-excel"></i> Import Excel</a> -->
                         </div>

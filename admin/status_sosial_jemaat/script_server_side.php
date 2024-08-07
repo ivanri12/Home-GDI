@@ -31,7 +31,7 @@ include_once '../_config/conn.php';
 
 // Sertakan kelas SSP
 require('../assets/libs/ssp.class.php');
-$joinTabelJemaat = "LEFT JOIN jemaat ON status_sosial_jemaat.id_jemaat = jemaat.id_jemaat";
+$joinTabelJemaat = "FROM status_sosial_jemaat LEFT JOIN jemaat ON status_sosial_jemaat.id_jemaat = jemaat.id_jemaat";
 
 
 

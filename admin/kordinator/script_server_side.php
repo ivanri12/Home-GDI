@@ -19,44 +19,37 @@
  */
 
 // DB table to use
-$table = 'kordinator';
+$table = '
+    kordinator,
+    majelis, 
+    jemaat, 
+    rayon';
 
-// Table's primary key
 $primaryKey = 'id_kordinator';
 
-// Array of database columns which should be read and sent back to DataTables.
-// The `db` parameter represents the column name in the database, while the `dt`
-// parameter represents the DataTables column identifier. In this case simple
-// indexes
+
 $columns = array(
-    array('db' => 'id_majelis',  'dt' => 0),
-    array('db' => 'id_rayon',   'dt' => 1),
-    array('db' => 'nama_kordinator',     'dt' => 2),
-    array('db' => 'alamat',     'dt' => 3),
-    array('db' => 'status',     'dt' => 4),
-    array('db' => 'id_kordinator',     'dt' => 5),
-    // array(
-    //     'db'        => 'salary',
-    //     'dt'        => 5,
-    //     'formatter' => function ($d, $row) {
-    //         return '$' . number_format($d);
-    //     }
-    // )
+    array('db' => 'rayon', 'dt' => 0),
+    array('db' => 'nama', 'dt' => 1),
+    array('db' => 'alamat', 'dt' => 2),
+    array('db' => 'nama_kordinator', 'dt' => 3),
+    array('db' => 'status', 'dt' => 4),
+    array('db' => 'telepon', 'dt' => 5),
+    array('db' => 'id_kordinator', 'dt' => 6),
 );
 
 // SQL server connection information
 include_once '../_config/conn.php';
 
-// $joinQuery = "LEFT JOIN rayon ON kepala_keluarga.id_rayon = kepala_keluarga.id_rayon";
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * If you just want to use the basic configuration for DataTables with PHP
- * server-side, there is no need to edit below this line.
- */
-
+// Sertakan kelas SSP
 require('../assets/libs/ssp.class.php');
 
+// Join query
+$joinQuery = "FROM kordinator LEFT JOIN majelis ON kordinator.id_majelis = majelis.id_majelis LEFT JOIN jemaat ON majelis.id_jemaat = jemaat.id_jemaat LEFT JOIN rayon ON kordinator.id_rayon = rayon.id_rayon";
+
+// Bagian where condition bisa di tambahkan jika ada filter tertentu
+$extraWhere = "";
+
 echo json_encode(
-    SSP::simple($_GET, $sql_details, $table, $primaryKey, $columns)
+    SSP::simple($_GET, $sql_details, $table, $primaryKey, $columns, $joinQuery)
 );
