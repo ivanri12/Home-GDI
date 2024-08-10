@@ -67,6 +67,7 @@ if (isset($_SESSION['id_user'])) {
                                 if (mysqli_num_rows($sql_login) > 0) {
                                     $data = mysqli_fetch_assoc($sql_login);
                                     $_SESSION['kategori'] = $data['kategori'];
+                                    $_SESSION['id_rayon'] = $data['id_rayon'];
                                     $_SESSION['id_user'] = $email;
                                     echo "<script>window.location='" . base_url() . "';</script>";
                                 } else { ?>

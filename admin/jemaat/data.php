@@ -35,6 +35,7 @@ if ($kategori !== 'Admin' && $kategori !== 'Kordinator') {
                                     <th scope="col">Nama</th>
                                     <th scope="col">Tempat Tanggal Lahir</th>
                                     <th scope="col">Jenis Kelamin</th>
+                                    <th scope="col">Rayon</th>
                                     <th scope="col">
                                         <i class="fas fa-cog"></i>
                                     </th>
@@ -66,7 +67,7 @@ if ($kategori !== 'Admin' && $kategori !== 'Kordinator') {
                             columnDefs: [{
                                 "searchable": false,
                                 "orderable": false,
-                                "targets": 5,
+                                "targets": 6,
                                 "render": function(data, type, row) {
                                     let btn = "<center><a href = 'edit.php?id=" + data + "' style='margin-right: 2px; margin-left: -10px;' class='btn-sm btn-warning'><i class='fas fa-edit'></i></a><a href = 'hapus.php?id=" + data + "' onclick=\"return confirm('Data Akan Dihapus?')\" class='btn-sm btn-danger'><i class='fas fa-trash'></i></a></center>";
                                     return btn;

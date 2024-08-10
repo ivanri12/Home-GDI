@@ -16,9 +16,9 @@
                 'Kordinator' => 'Kordinator'
             ];
 
-            // Ambil nilai kategori yang dipilih dari database
+            // Ambil nilai kategori dan id_rayon yang dipilih dari database
             $selectedCategory = $data['kategori'];
-
+            $selectedRayon = $data['id_rayon'];
             ?>
 
             <form class="form-horizontal" action="proses.php" method="POST" enctype="multipart/form-data">
@@ -29,13 +29,13 @@
                             <label for="email" class="col-sm-2 text-start control-label col-form-label">Email</label>
                             <div class="col-sm-9">
                                 <input type="hidden" name="id" value="<?= $data['id_user'] ?>">
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Rayon" value="<?= $data['email'] ?>" required>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Email" value="<?= $data['email'] ?>" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="nama" class="col-sm-2 text-start control-label col-form-label">Nama</label>
                             <div class="col-sm-9">
-                                <input type="text" name="nama" class="form-control" id="email" placeholder="Nama" value="<?= $data['nama'] ?>" required>
+                                <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama" value="<?= $data['nama'] ?>" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -52,6 +52,25 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="id_rayon" class="col-sm-2 text-start control-label col-form-label">Rayon</label>
+                            <div class="col-sm-9">
+                                <select name="id_rayon" class="form-control" id="id_rayon">
+                                    <option value="">Pilih Rayon</option>
+                                    <?php
+                                    // Ambil data rayon dari database
+                                    $result = mysqli_query($con, "SELECT id_rayon, rayon FROM rayon");
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $selected = ($selectedRayon == $row['id_rayon']) ? "selected" : "";
+                                        echo '<option value="' . $row['id_rayon'] . '" ' . $selected . '>' . $row['rayon'] . '</option>';
+                                    }
+                                    ?>
+                                </select>
+                                <p class="text-danger">* Jika kategori kordinator, silahkan tambahkan rayon</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="border-top">

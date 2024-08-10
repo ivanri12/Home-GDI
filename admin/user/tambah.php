@@ -32,6 +32,23 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="id_rayon" class="col-sm-2 text-start control-label col-form-label">Rayon</label>
+                            <div class="col-sm-9">
+                                <select name="id_rayon" class="form-control" id="id_rayon">
+                                    <option value="">Pilih Rayon</option>
+                                    <?php
+                                    // Ambil data rayon dari database
+                                    $result = mysqli_query($con, "SELECT id_rayon, rayon FROM rayon");
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo '<option value="' . $row['id_rayon'] . '">' . $row['rayon'] . '</option>';
+                                    }
+                                    ?>
+                                </select>
+                                <p class="text-danger">* Jika kategori kordinator, silahkan tambahkan rayon</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-sm-2 text-start control-label col-form-label">Password</label>
                             <div class="col-sm-9">
                                 <input type="text" name="password" class="form-control" id="password" placeholder="Password" required>

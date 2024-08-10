@@ -5,6 +5,7 @@ if (isset($_POST['tambah'])) {
     $email = trim(mysqli_real_escape_string($con, $_POST['email']));
     $nama = trim(mysqli_real_escape_string($con, $_POST['nama']));
     $kategori = trim(mysqli_real_escape_string($con, $_POST['kategori']));
+    $id_rayon = trim(mysqli_real_escape_string($con, $_POST['id_rayon']));
     $password = trim(mysqli_real_escape_string($con, $_POST['password']));
 
     $sql_cek_rayon = mysqli_query($con, "SELECT * FROM user WHERE email = '$email'") or die(mysqli_error($con));
@@ -12,7 +13,7 @@ if (isset($_POST['tambah'])) {
         echo "<script>alert('Rayon Sudah Ada');window.location='tambah.php';</script>";
     } else {
         // Menambahkan data baru
-        $tambah = mysqli_query($con, "INSERT INTO user (email, nama, kategori, password) VALUES ('$email','$nama', '$kategori', '$password')") or die(mysqli_error($con));
+        $tambah = mysqli_query($con, "INSERT INTO user (email, nama, kategori, id_rayon, password) VALUES ('$email','$nama', '$kategori', '$id_rayon', '$password')") or die(mysqli_error($con));
         if ($tambah) {
             echo "<script>alert('Data Berhasil Ditambahkan');window.location='data.php';</script>";
         } else {
@@ -25,6 +26,7 @@ if (isset($_POST['tambah'])) {
     $email = trim(mysqli_real_escape_string($con, $_POST['email']));
     $nama = trim(mysqli_real_escape_string($con, $_POST['nama']));
     $kategori = trim(mysqli_real_escape_string($con, $_POST['kategori']));
+    $id_rayon = trim(mysqli_real_escape_string($con, $_POST['id_rayon']));
 
 
     // Memeriksa apakah data jemaat sudah ada
@@ -33,7 +35,7 @@ if (isset($_POST['tambah'])) {
         echo "<script>alert('Email Sudah Ada');window.location='edit.php?id=$id';</script>";
     } else {
         // Mengupdate data
-        $update = mysqli_query($con, "UPDATE user SET email = '$email', nama = '$nama', kategori = '$kategori' WHERE id_user = '$id'") or die(mysqli_error($con));
+        $update = mysqli_query($con, "UPDATE user SET email = '$email', nama = '$nama', kategori = '$kategori', id_rayon = '$id_rayon' WHERE id_user = '$id'") or die(mysqli_error($con));
         if ($update) {
             echo "<script>alert('Data Berhasil Diubah');window.location='data.php';</script>";
         } else {

@@ -72,6 +72,32 @@ if ($kategori !== 'Admin' && $kategori !== 'Kordinator') {
                             </div>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="id_rayon" class="col-sm-2 text-start control-label col-form-label">Rayon</label>
+                        <div class="col-sm-9">
+                            <select class="form-control select2 form-select shadow-none" style="width: 100%; height:36px;" name="id_rayon" id="id_rayon" required>
+                                <option value="">Pilih Rayon</option>
+                                <?php
+                                // Ambil session kategori dan id_rayon
+                                $kategori = $_SESSION['kategori'];
+                                $session_id_rayon = $_SESSION['id_rayon'];
+
+                                // Query untuk menampilkan rayon
+                                if ($kategori === 'Kordinator') {
+                                    // Jika kategori adalah Kordinator, hanya tampilkan rayon sesuai dengan session id_rayon
+                                    $result = mysqli_query($con, "SELECT id_rayon, rayon FROM rayon WHERE id_rayon = '$session_id_rayon'");
+                                } else {
+                                    // Jika kategori bukan Kordinator, tampilkan semua rayon
+                                    $result = mysqli_query($con, "SELECT id_rayon, rayon FROM rayon");
+                                }
+
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<option value='" . $row['id_rayon'] . "'>" . $row['rayon'] . "</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="border-top">
                     <div class="card-body">

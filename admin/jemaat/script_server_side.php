@@ -34,7 +34,8 @@ $columns = array(
     array('db' => 'nama',     'dt' => 2),
     array('db' => 'tempat_dan_tanggal_lahir',     'dt' => 3),
     array('db' => 'jenis_kelamin',     'dt' => 4),
-    array('db' => 'id_jemaat',     'dt' => 5),
+    array('db' => 'rayon',     'dt' => 5),
+    array('db' => 'id_jemaat',     'dt' => 6),
     // array(
     //     'db'        => 'salary',
     //     'dt'        => 5,
@@ -47,7 +48,7 @@ $columns = array(
 // SQL server connection information
 include_once '../_config/conn.php';
 
-$joinQuery = "FROM jemaat LEFT JOIN pendeta ON jemaat.id_pendeta = pendeta.id_pendeta LEFT JOIN kepala_keluarga ON jemaat.id_kepala_keluarga = kepala_keluarga.id_kepala_keluarga";
+$joinQuery = "FROM jemaat LEFT JOIN pendeta ON jemaat.id_pendeta = pendeta.id_pendeta LEFT JOIN kepala_keluarga ON jemaat.id_kepala_keluarga = kepala_keluarga.id_kepala_keluarga LEFT JOIN rayon ON jemaat.id_rayon = rayon.id_rayon";
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
