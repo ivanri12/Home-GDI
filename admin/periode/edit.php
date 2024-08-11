@@ -24,27 +24,10 @@ if ($kategori !== 'Admin') {
 
             ?>
 
-            <form class="form-horizontal" action="proses_edit.php" method="POST" enctype="multipart/form-data">
+            <form class="form-horizontal" action="proses.php" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                     <h4 class="card-title">Edit Data Periode</h4>
                     <div class="tabel">
-                        <!-- <div class="form-group row">
-                            <label for="id_pendeta" class="col-sm-2 text-start control-label col-form-label">Nama Pendeta</label>
-                            <div class="col-sm-9">
-                                <select class="form-control select2 form-select shadow-none" style="width: 100%; height:36px;" name="id_pendeta" id="id_pendeta" required>
-                                    <option value="">Pilih Nama Pendeta</option>
-                                    <?php
-                                    // Ambil ID pendeta dari tabel dan tampilkan nama
-                                    $result_pendeta = mysqli_query($con, "SELECT id_pendeta, nama_pendeta FROM pendeta");
-                                    while ($row_pendeta = mysqli_fetch_assoc($result_pendeta)) {
-                                        // Pilih nilai yang sesuai dengan data yang ada
-                                        $selected = ($row_pendeta['id_pendeta'] == $data['id_pendeta']) ? "selected" : "";
-                                        echo "<option value='" . $row_pendeta['id_pendeta'] . "' $selected>" . $row_pendeta['nama_pendeta'] . "</option>";
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div> -->
                         <div class="form-group row">
                             <label for="jabatan_majelis" class="col-sm-2 text-start control-label col-form-label">Jabatan Majelis</label>
                             <div class="col-sm-9">
@@ -64,9 +47,9 @@ if ($kategori !== 'Admin') {
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="tanggal_jabatan_berakhir" class="col-sm-2 text-start control-label col-form-label">Tanggal Jabatan Berakhir</label>
+                            <label for="tanggal_jabatan_berahkir" class="col-sm-2 text-start control-label col-form-label">Tanggal Jabatan Berakhir</label>
                             <div class="col-sm-9">
-                                <input type="date" name="tanggal_jabatan_berakhir" class="form-control" id="tanggal_jabatan_berakhir" value="<?php echo htmlspecialchars($data['tanggal_jabatan_berakhir']); ?>" required>
+                                <input type="date" name="tanggal_jabatan_berahkir" class="form-control" id="tanggal_jabatan_berahkir" value="<?php echo htmlspecialchars($data['tanggal_jabatan_berahkir']); ?>" required>
                             </div>
                         </div>
                         <input type="hidden" name="id_periode" value="<?php echo htmlspecialchars($data['id_periode']); ?>">

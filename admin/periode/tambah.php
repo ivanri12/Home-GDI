@@ -20,20 +20,6 @@ if ($kategori !== 'Admin') {
                 <div class="card-body">
                     <h4 class="card-title">Tambah Data Periode</h4>
                     <div class="tabel">
-                        <!-- <div class="form-group row">
-                            <label for="id_pendeta" class="col-sm-2 text-start control-label col-form-label">Nama Pendeta</label>
-                            <div class="col-sm-9">
-                                <select class="form-control select2 form-select shadow-none" style="width: 100%; height:36px;" name="id_pendeta" id="id_pendeta" required>
-                                    <option value="">Pilih Nama Pendeta</option>
-                                    <?php
-                                    $result_pendeta = mysqli_query($con, "SELECT id_pendeta, nama_pendeta FROM pendeta");
-                                    while ($row_pendeta = mysqli_fetch_assoc($result_pendeta)) {
-                                        echo "<option value='" . $row_pendeta['id_pendeta'] . "'>" . $row_pendeta['nama_pendeta'] . "</option>";
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div> -->
                         <div class="form-group row">
                             <label for="jabatan_majelis" class="col-sm-2 text-start control-label col-form-label">Jabatan Majelis</label>
                             <div class="col-sm-9">
@@ -53,9 +39,9 @@ if ($kategori !== 'Admin') {
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="tanggal_jabatan_berakhir" class="col-sm-2 text-start control-label col-form-label">Tanggal Jabatan Berakhir</label>
+                            <label for="tanggal_jabatan_berahkir" class="col-sm-2 text-start control-label col-form-label">Tanggal Jabatan Berakhir</label>
                             <div class="col-sm-9">
-                                <input type="date" name="tanggal_jabatan_berakhir" class="form-control" id="tanggal_jabatan_berakhir" required>
+                                <input type="date" name="tanggal_jabatan_berahkir" class="form-control" id="tanggal_jabatan_berahkir" required>
                             </div>
                         </div>
                     </div>
