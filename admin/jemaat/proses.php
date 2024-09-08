@@ -9,22 +9,17 @@ if (isset($_POST['tambah'])) {
     $jenis_kelamin = trim(mysqli_real_escape_string($con, $_POST['jenis_kelamin']));
     $id_rayon = trim(mysqli_real_escape_string($con, $_POST['id_rayon']));
 
-    $sql_cek_id_kepala_keluarga = mysqli_query($con, "SELECT * FROM jemaat WHERE id_kepala_keluarga = '$id_kepala_keluarga'") or die(mysqli_error($con));
-    if (mysqli_num_rows($sql_cek_id_kepala_keluarga) > 0) {
-        echo "<script>alert('Nomor KK Sudah Terdaftar');window.location='tambah.php';</script>";
+    // Cek apakah nama jemaat sudah ada di database
+    $sql_cek_nama = mysqli_query($con, "SELECT * FROM jemaat WHERE nama = '$nama'") or die(mysqli_error($con));
+    if (mysqli_num_rows($sql_cek_nama) > 0) {
+        echo "<script>alert('Nama Jemaat Sudah Ada');window.location='tambah.php';</script>";
     } else {
-        // Cek apakah nama jemaat sudah ada di database
-        $sql_cek_nama = mysqli_query($con, "SELECT * FROM jemaat WHERE nama = '$nama'") or die(mysqli_error($con));
-        if (mysqli_num_rows($sql_cek_nama) > 0) {
-            echo "<script>alert('Nama Jemaat Sudah Ada');window.location='tambah.php';</script>";
+        // Menambahkan data baru
+        $tambah = mysqli_query($con, "INSERT INTO jemaat (id_pendeta, id_kepala_keluarga, nama, tempat_dan_tanggal_lahir, jenis_kelamin, id_rayon) VALUES ('$id_pendeta', '$id_kepala_keluarga', '$nama', '$tempat_dan_tanggal_lahir', '$jenis_kelamin', '$id_rayon')") or die(mysqli_error($con));
+        if ($tambah) {
+            echo "<script>alert('Data Berhasil Ditambahkan');window.location='data.php';</script>";
         } else {
-            // Menambahkan data baru
-            $tambah = mysqli_query($con, "INSERT INTO jemaat (id_pendeta, id_kepala_keluarga, nama, tempat_dan_tanggal_lahir, jenis_kelamin, id_rayon) VALUES ('$id_pendeta', '$id_kepala_keluarga', '$nama', '$tempat_dan_tanggal_lahir', '$jenis_kelamin', '$id_rayon')") or die(mysqli_error($con));
-            if ($tambah) {
-                echo "<script>alert('Data Berhasil Ditambahkan');window.location='data.php';</script>";
-            } else {
-                echo "<script>alert('Data Gagal Ditambahkan');window.location='data.php';</script>";
-            }
+            echo "<script>alert('Data Gagal Ditambahkan');window.location='data.php';</script>";
         }
     }
 } else if (isset($_POST['edit'])) {
@@ -37,22 +32,16 @@ if (isset($_POST['tambah'])) {
     $jenis_kelamin = trim(mysqli_real_escape_string($con, $_POST['jenis_kelamin']));
     $id_rayon = trim(mysqli_real_escape_string($con, $_POST['id_rayon']));
 
-    $sql_cek_id_kepala_keluarga = mysqli_query($con, "SELECT * FROM jemaat WHERE id_kepala_keluarga = '$id_kepala_keluarga' AND id_jemaat != '$id'") or die(mysqli_error($con));
-    if (mysqli_num_rows($sql_cek_id_kepala_keluarga) > 0) {
-        echo "<script>alert('Nomor KK Sudah Terdaftar');window.location='edit.php?id=$id';</script>";
+    $sql_cek_nama = mysqli_query($con, "SELECT * FROM jemaat WHERE nama = '$nama' AND id_jemaat != '$id'") or die(mysqli_error($con));
+    if (mysqli_num_rows($sql_cek_nama) > 0) {
+        echo "<script>alert('Nama Jemaat Sudah Ada');window.location='edit.php?id=$id';</script>";
     } else {
-        // Cek apakah nama jemaat sudah ada di database
-        $sql_cek_nama = mysqli_query($con, "SELECT * FROM jemaat WHERE nama = '$nama' AND id_jemaat != '$id'") or die(mysqli_error($con));
-        if (mysqli_num_rows($sql_cek_nama) > 0) {
-            echo "<script>alert('Nama Jemaat Sudah Ada');window.location='edit.php?id=$id';</script>";
+        // Mengupdate data
+        $update = mysqli_query($con, "UPDATE jemaat SET id_pendeta = '$id_pendeta', id_kepala_keluarga = '$id_kepala_keluarga', nama = '$nama', tempat_dan_tanggal_lahir = '$tempat_dan_tanggal_lahir', jenis_kelamin = '$jenis_kelamin',  id_rayon = '$id_rayon' WHERE id_jemaat = '$id'") or die(mysqli_error($con));
+        if ($update) {
+            echo "<script>alert('Data Berhasil Diubah');window.location='data.php';</script>";
         } else {
-            // Mengupdate data
-            $update = mysqli_query($con, "UPDATE jemaat SET id_pendeta = '$id_pendeta', id_kepala_keluarga = '$id_kepala_keluarga', nama = '$nama', tempat_dan_tanggal_lahir = '$tempat_dan_tanggal_lahir', jenis_kelamin = '$jenis_kelamin',  id_rayon = '$id_rayon' WHERE id_jemaat = '$id'") or die(mysqli_error($con));
-            if ($update) {
-                echo "<script>alert('Data Berhasil Diubah');window.location='data.php';</script>";
-            } else {
-                echo "<script>alert('Data Gagal Diubah');window.location='data.php';</script>";
-            }
+            echo "<script>alert('Data Gagal Diubah');window.location='data.php';</script>";
         }
     }
 } else if (isset($_POST['import'])) {

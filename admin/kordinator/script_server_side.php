@@ -30,9 +30,9 @@ $primaryKey = 'id_kordinator';
 
 $columns = array(
     array('db' => 'rayon', 'dt' => 0),
-    array('db' => 'nama', 'dt' => 1),
-    array('db' => 'alamat', 'dt' => 2),
-    array('db' => 'nama_kordinator', 'dt' => 3),
+    array('db' => 'nama_kordinator', 'dt' => 1),
+    array('db' => 'jabatan', 'dt' => 2),
+    array('db' => 'alamat', 'dt' => 3),
     array('db' => 'status', 'dt' => 4),
     array('db' => 'telepon', 'dt' => 5),
     array('db' => 'id_kordinator', 'dt' => 6),

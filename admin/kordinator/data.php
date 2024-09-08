@@ -31,8 +31,8 @@ if ($kategori !== 'Admin') {
                                 <tr>
                                     <th scope="col">Rayon</th>
                                     <th scope="col">Nama Majelis</th>
+                                    <th scope="col">Jabatan</th>
                                     <th scope="col">Alamat</th>
-                                    <th scope="col">Nama Kordinator</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Telepon</th>
                                     <th scope="col">
