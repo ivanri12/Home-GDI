@@ -8,14 +8,23 @@ if (isset($_POST['tambah'])) {
     $alamat = trim(mysqli_real_escape_string($con, $_POST['alamat']));
     $nama_asrama = trim(mysqli_real_escape_string($con, $_POST['nama_asrama']));
 
-    // Menambahkan data baru
-    $tambah = mysqli_query($con, "INSERT INTO kepala_keluarga (id_rayon, jenis_kk, nomor_kk, alamat, nama_asrama) VALUES ('$id_rayon', '$jenis_kk', '$nomor_kk', '$alamat', '$nama_asrama')") or die(mysqli_error($con));
-    if ($tambah) {
-        echo "<script>alert('Data Berhasil Ditambahkan');window.location='data.php';</script>";
+    // Cek apakah nomor_kk sudah ada di database
+    $cek_nomor_kk = mysqli_query($con, "SELECT * FROM kepala_keluarga WHERE nomor_kk = '$nomor_kk'") or die(mysqli_error($con));
+    
+    if (mysqli_num_rows($cek_nomor_kk) > 0) {
+        // Jika nomor_kk sudah ada
+        echo "<script>alert('Nomor KK sudah ada!');window.location='data.php';</script>";
     } else {
-        echo "<script>alert('Data Gagal Ditambahkan');window.location='data.php';</script>";
+        // Jika nomor_kk belum ada, tambahkan data baru
+        $tambah = mysqli_query($con, "INSERT INTO kepala_keluarga (id_rayon, jenis_kk, nomor_kk, alamat, nama_asrama) VALUES ('$id_rayon', '$jenis_kk', '$nomor_kk', '$alamat', '$nama_asrama')") or die(mysqli_error($con));
+        if ($tambah) {
+            echo "<script>alert('Data Berhasil Ditambahkan');window.location='data.php';</script>";
+        } else {
+            echo "<script>alert('Data Gagal Ditambahkan');window.location='data.php';</script>";
+        }
     }
-} else if (isset($_POST['edit'])) {
+}
+ else if (isset($_POST['edit'])) {
     $id = $_POST['id_kepala_keluarga'];
     $id_rayon = trim(mysqli_real_escape_string($con, $_POST['id_rayon']));
     $jenis_kk = trim(mysqli_real_escape_string($con, $_POST['jenis_kk']));
